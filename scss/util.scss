@@ -10,7 +10,13 @@
     border-radius:$radius;
     -moz-border-radius:$radius;
     -webkit-border-radius:$radius;
-}
+} 
+@mixin round-corner($lt,$rt,$rb,$lb){
+	$values:$lt $rt $rb $lb;
+    border-radius:$radius;
+    -moz-border-radius:$radius;
+    -webkit-border-radius:$radius;
+} 
 
 @mixin linear-gradient-tb($startColor:#ddd, $stopColor:#fff){
     $start:top;
