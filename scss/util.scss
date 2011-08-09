@@ -1,0 +1,137 @@
+@mixin resetList(){
+    ul,ol{
+        li{
+           list-style:none;
+        }
+    }
+}
+
+@mixin round-corner($radius){
+    border-radius:$radius;
+    -moz-border-radius:$radius;
+    -webkit-border-radius:$radius;
+}
+
+@mixin linear-gradient-tb($startColor:#ddd, $stopColor:#fff){
+    $start:top;
+    $end:bottom;
+    background-color: $startColor; /* fallback color */
+    background-image: -ms-linear-gradient($start ,$startColor, $stopColor);
+    background-image: -moz-linear-gradient($start , $startColor ,$stopColor);
+    background-image: -webkit-gradient(linear, 0% $start, 0% $end, from($startColor), to($stopColor));
+    background-image: linear-gradient($start,$startColor, $stopColor);
+    /*styling in ie.css for IE8/7*/
+    filter: 'progid:DXImageTransform.Microsoft.gradient(startColorStr=#{$startColor},EndColorStr=#{$stopColor}")';
+
+}
+@mixin linear-gradient-lr($startColor:#ddd, $stopColor:#fff){
+    $start:left;
+    $end:right;
+    background-color: $startColor; /* fallback color */
+    background-image: -ms-linear-gradient($start ,$startColor, $stopColor);
+    background-image: -moz-linear-gradient($start , $startColor ,$stopColor);
+    background-image: -webkit-gradient(linear, $start 0%, $end 0%, from($startColor), to($stopColor));
+    background-image: linear-gradient($start,$startColor, $stopColor);
+    /*styling in ie.css for IE8/7*/
+    filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr=#{$startColor},EndColorStr=#{$stopColor}, gradientType='1')";
+}
+
+@mixin gradientWithImage($url:"/static/4viewers/images/lib/search-icon.png",$x:center,$y:center,$startColor:#fff,$stopColor:#000){
+    background:url($url)no-repeat $x $y $stopColor;
+    background:url($url) no-repeat $x $y,
+            -webkit-gradient(linear, 0 0, 0 100%, from($startColor), to($stopColor));
+    background:url($url) no-repeat $x $y,
+            -moz-linear-gradient(top, $startColor, $stopColor);
+}
+
+@mixin transition($type:color,$duration:1s,$effect:ease-in-out){
+    $values:$type $duration $effect;
+
+    -webkit-transition:$values;
+    -moz-transition:$values;
+    -o-transition:$values;
+    transition:$values;
+}
+
+@mixin box-shadow($offset:0px,$spread:0px,$blur:0px,$color:#fff){
+    $values:$offset $spread $blur $color;
+
+    -moz-box-shadow:$values;
+    -webkit-box-shadow:$values;
+    box-shadow:$values;
+	/*IE*/ 
+    filter:"progid:DXImageTransform.Microsoft.Shadow(color=#{$color}, Direction=#{$offset}, Strength=#{$blur})"; 
+}
+@mixin text-shadow($offset:0px,$spread:0px,$blur:0px,$color:#fff){
+    $values:$offset $spread $blur $color;
+
+    -moz-text-shadow:$values;
+    -webkit-text-shadow:$values;
+    text-shadow:$values;
+	/*IE*/
+//    filter:"progid:DXImageTransform.Microsoft.Shadow(color=#{$color}, Direction=#{$offset}, Strength=#{$blur})";
+}
+
+@mixin inset-shadow($inset:inset,$offset:0px,$spread:0px,$blur:0px,$color:#fff){
+    $values:$inset $offset $spread $blur $color;
+
+    -moz-box-shadow:$values;
+    -webkit-box-shadow:$values;
+    box-shadow:$values;
+}
+
+@mixin opacity($alpha:0.9){
+    opacity: $alpha; 
+    filter:alpha(opacity=($alpha*100)); 
+}
+
+@mixin shadow($none:none){
+    -moz-box-shadow:$none;
+    -webkit-box-shadow:$none;
+    box-shadow:$none;
+}
+@mixin transition($none){
+    -webkit-transition:$none;
+    -moz-transition:$none;
+    -o-transition:$none;
+    transition:$none;
+}
+
+
+@mixin box($color:#eee){
+    background:$color;
+    border:1px solid ($color)-#222;
+    padding:5px 10px;
+}
+
+@mixin gigantic(){
+    font-size: 40px;
+    line-height: 42px;
+    letter-spacing: -2px;
+}
+
+@mixin sizeH1(){
+    font-size: 30px;
+    line-height: 32px;
+    letter-spacing: -1px;
+}
+
+@mixin sizeH2(){
+    font-size: 21px;
+    line-height: 23px;
+}
+
+@mixin sizeH3(){
+    font-size: 18px;
+    line-height: 20px;
+}
+
+@mixin sizeH4(){
+    font-size: 18px;
+    line-height: 20px;
+}
+
+@mixin fixHeight($height){
+    height: $height;
+    overflow: hidden;
+}
